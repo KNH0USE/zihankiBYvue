@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang='ja'>
+<head>
+    <meta charset='UTF-8'>
+    <title>自販機byVue</title>
+    <link type='text/css' rel='stylesheet' href='https://unpkg.com/bootstrap/dist/css/bootstrap.min.css' />
+    <link type='text/css' rel='stylesheet' href='https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css' />
+    <script src='https://cdn.jsdelivr.net/npm/vue/dist/vue.js'></script>
+    <script src='https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js'></script>
+    <link rel='stylesheet' href='css/style.css'>
+    <script defer src='js/main.js'></script>
+</head>
+<body>
+
+
+<div id='app'>
+<input v-model='disp'>
+<p>硬貨,紙幣をお入れください</p>
+
+<span v-for='coin in coinData' :key='coin.id'>
+    <b-button class='m-1' @click='calc(coin.kingaku)'>{{coin.name}}</b-button>
+</span>
+<b-button variant='primary' @click='clr'>返金</b-button><br><br>
+
+
+<b-button @click='getWater' variant='outline-primary' :disabled='water'>お水90円</b-button>
+<b-button @click='getTea' variant='outline-primary' :disabled='tea'>お茶100円</b-button>
+<b-button @click='getVitamin' variant='outline-primary' :disabled='Vitamin'>デカビタ330円</b-button>
+<b-button @click='getMilktea' variant='outline-primary' :disabled='milktea'>ミルクティ500円</b-button>
+<b-button @click='getCoffe' variant='outline-primary' :disabled='coffe'>最高級コーヒー1000円</b-button><br>
+<!-- 
+<span v-for='drink in drinkData'>
+    <b-button class='m-1' @click='get(drink.title)' variant='outline-primary' disabled>{{drink.title}}{{drink.okane}}</b-button>
+</span> -->
+
+
+</span>
+</div><!-- app -->
+</body>
+</html>
